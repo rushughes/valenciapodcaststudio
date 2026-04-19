@@ -1,0 +1,25 @@
+# Hugo
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# Deploy secrets
+.env
+.env.deploy
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Claude Code local state
+.claude/settings.local.json
+
+# Node / asset tooling (if ever added)
+node_modules/
+
+# Logs
+*.log
