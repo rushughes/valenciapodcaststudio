@@ -1,0 +1,29 @@
+[[main]]
+  name   = "Studios"
+  pageRef = "/estudios"
+  weight = 10
+
+[[main]]
+  name   = "Neighborhoods"
+  pageRef = "/barrios"
+  weight = 20
+
+[[main]]
+  name   = "Guides"
+  pageRef = "/guias"
+  weight = 30
+
+[[main]]
+  name   = "About"
+  pageRef = "/sobre-nosotros"
+  weight = 40
+
+[[footer]]
+  name   = "Editorial methodology"
+  pageRef = "/guias/metodologia"
+  weight = 10
+
+[[footer]]
+  name   = "Sponsorship"
+  pageRef = "/patrocinio"
+  weight = 20

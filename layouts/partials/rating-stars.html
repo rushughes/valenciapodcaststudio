@@ -1,0 +1,10 @@
+{{- $rating := . -}}
+{{- $full := math.Floor $rating -}}
+{{- $half := cond (gt (sub $rating $full) 0.0) 1 0 -}}
+{{- $empty := sub 5 (add $full $half) -}}
+<span class="rating-stars" aria-label="Valoración: {{ $rating }} de 5">
+  {{- range seq $full -}}<span aria-hidden="true">★</span>{{- end -}}
+  {{- if eq $half 1 -}}<span aria-hidden="true">⯨</span>{{- end -}}
+  {{- range seq $empty -}}<span aria-hidden="true" class="opacity-30">★</span>{{- end -}}
+  <span class="ml-2 text-sm font-medium">{{ printf "%.1f" $rating }}/5</span>
+</span>

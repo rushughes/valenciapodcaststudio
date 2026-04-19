@@ -1,0 +1,50 @@
+{{- $studio := index hugo.Data.studios .Params.slug -}}
+{{- if and $studio .Params.rating -}}
+{{- $url := absURL .RelPermalink -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "itemReviewed": {
+    "@type": "LocalBusiness",
+    "name": {{ $studio.name | jsonify }},
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": {{ $studio.address | jsonify }},
+      "addressLocality": {{ $studio.city | default "Valencia" | jsonify }},
+      "addressCountry": {{ $studio.country | default "ES" | jsonify }}
+    }
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Valencia Podcast Studio",
+    "url": {{ site.BaseURL | jsonify }}
+  },
+  "datePublished": {{ .Date.Format "2006-01-02" | jsonify }},
+  "reviewBody": {{ .Params.verdict | default .Summary | plainify | jsonify }},
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": {{ .Params.rating }},
+    "bestRating": 5,
+    "worstRating": 0
+  },
+  "url": {{ $url | jsonify }}
+}
+</script>
+{{- with .Params.ratingCount }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AggregateRating",
+  "itemReviewed": {
+    "@type": "LocalBusiness",
+    "name": {{ $studio.name | jsonify }}
+  },
+  "ratingValue": {{ $.Params.rating }},
+  "reviewCount": {{ . }},
+  "bestRating": 5,
+  "worstRating": 0
+}
+</script>
+{{- end }}
+{{- end -}}

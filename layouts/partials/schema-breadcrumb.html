@@ -1,0 +1,27 @@
+{{- $crumbs := slice -}}
+{{- $crumbs = $crumbs | append (dict "name" (i18n "home" | default "Inicio") "url" (absURL "/")) -}}
+{{- with .CurrentSection -}}
+  {{- if and (.Permalink) (ne .Permalink (absURL "/")) -}}
+    {{- $crumbs = $crumbs | append (dict "name" .Title "url" .Permalink) -}}
+  {{- end -}}
+{{- end -}}
+{{- if and .IsPage (not .CurrentSection.IsHome) -}}
+  {{- $crumbs = $crumbs | append (dict "name" .Title "url" .Permalink) -}}
+{{- end -}}
+{{- if gt (len $crumbs) 1 -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{- range $i, $c := $crumbs }}{{ if $i }},{{ end }}
+    {
+      "@type": "ListItem",
+      "position": {{ add $i 1 }},
+      "name": {{ $c.name | jsonify }},
+      "item": {{ $c.url | jsonify }}
+    }{{ end }}
+  ]
+}
+</script>
+{{- end -}}

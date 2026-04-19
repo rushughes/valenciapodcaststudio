@@ -1,0 +1,22 @@
+{{- $section := where site.RegularPages "Section" .Section -}}
+{{- $ranked := sort $section ".Params.weight" "asc" -}}
+{{- if gt (len $ranked) 0 -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": {{ .Title | jsonify }},
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "numberOfItems": {{ len $ranked }},
+  "itemListElement": [
+    {{- range $i, $p := $ranked }}{{ if $i }},{{ end }}
+    {
+      "@type": "ListItem",
+      "position": {{ add $i 1 }},
+      "url": {{ absURL $p.RelPermalink | jsonify }},
+      "name": {{ $p.Title | jsonify }}
+    }{{ end }}
+  ]
+}
+</script>
+{{- end -}}

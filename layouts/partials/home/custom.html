@@ -1,0 +1,34 @@
+{{- $studios := where site.RegularPages "Section" "estudios" -}}
+{{- $ranked := first 10 (sort $studios ".Params.weight" "asc") -}}
+<section class="mx-auto max-w-4xl">
+  <header class="text-center">
+    <h1 class="text-5xl font-extrabold tracking-tight">{{ site.Title }}</h1>
+    <p class="mt-4 text-xl text-neutral-600 dark:text-neutral-300">{{ site.Params.description | default site.Language.Params.description }}</p>
+  </header>
+
+  {{ partial "sponsor-banner.html" . }}
+
+  <h2 class="mt-10 text-2xl font-bold">{{ i18n "home_top_studios" | default "Top estudios de podcast en Valencia" }}</h2>
+  <ol class="m-0 mt-4 grid list-none gap-4 p-0">
+    {{ range $i, $p := $ranked }}
+      {{- $studio := index hugo.Data.studios $p.Params.slug -}}
+      <li class="rounded-lg border border-neutral-200 p-5 dark:border-neutral-800">
+        <div class="flex flex-wrap items-baseline gap-3">
+          <span class="text-3xl font-extrabold text-primary-600">#{{ add $i 1 }}</span>
+          <h3 class="m-0 text-xl"><a href="{{ $p.RelPermalink }}" class="no-underline hover:underline">{{ $p.Title }}</a></h3>
+          {{ with $p.Params.rating }}<span class="ml-auto">{{ partial "rating-stars.html" . }}</span>{{ end }}
+        </div>
+        {{ with $studio }}
+          <p class="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
+            {{ .address }} · {{ delimit .barrios ", " }}
+            {{ with .priceFrom }} · desde {{ . }}€/{{ $studio.priceUnit | default "hora" }}{{ end }}
+          </p>
+        {{ end }}
+      </li>
+    {{ end }}
+  </ol>
+
+  <p class="mt-8 text-center">
+    <a href="/estudios/" class="rounded bg-primary-600 px-5 py-2 font-semibold text-white hover:bg-primary-700">{{ i18n "home_view_all" | default "Ver ranking completo" }}</a>
+  </p>
+</section>

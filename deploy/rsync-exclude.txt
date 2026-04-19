@@ -1,0 +1,8 @@
+# Files excluded from rsync deploys.
+# Consumed by: make deploy → rsync --exclude-from=deploy/rsync-exclude.txt
+
+.DS_Store
+.git
+.gitignore
+*.map
+*.log

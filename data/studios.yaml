@@ -1,0 +1,266 @@
+# Single source of truth for NAP (name/address/phone) across the site.
+# Partials read from this file so the same data renders identically everywhere.
+# Adding a studio: add entry here, then `make new-studio SLUG=<key>`.
+#
+# Research sources: studio websites, Google Maps, direct inquiries.
+# Last bulk update: 2026-04-19
+# Fields marked "TODO" need in-person or direct verification before publishing.
+
+# ─── TIER 1 (highly-equipped, strong reviews) ────────────────────────────────
+
+dot-podcast:
+  name: "DOT Podcast"
+  legalName: "DOT Podcast S.L."  # TODO verify legal name
+  address: "Av. de l'Oest, 40"
+  postalCode: "46001"
+  city: "Valencia"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: [39.4710, -0.3836]  # Av. de l'Ouest, 46001 — verify in Maps
+  phone: "+34665438070"
+  whatsapp: "+34665438070"
+  email: "info@dotpodcast.es"
+  website: "https://dotpodcast.es/"
+  instagram: "dotpodcast.es"
+  googleMapsUrl: "https://maps.app.goo.gl/kKkpuz3CPhsrH1Wb6"
+  barrios: ["Ciutat Vella"]
+  servicios: ["grabación", "edición", "vídeo-podcast", "streaming", "asesoramiento"]
+  equipamiento:
+    - "RØDE PodMic USB"
+    - "Shure SM7B (x4)"
+    - "Sony Cinema FX (x3)"
+    - "Blackmagic Studio 4K Plus"
+    - "Blackmagic ATEM Mini Pro"
+    - "SanDisk 24TB G-Raid Mirror"
+    - "Teleprompter"
+  priceFrom: 180
+  priceUnit: "hora"
+  priceRange: "€€€"
+  openingHours: []  # TODO request from studio
+  yearFounded: 2024  # TODO verify
+
+palette-studio:
+  name: "Palette Studio"
+  legalName: ""  # TODO
+  address: "Av. del Cid, 2"
+  postalCode: "46018"
+  city: "Valencia"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: [39.4573, -0.4054]  # Av. del Cid area — verify in Maps
+  phone: "+34656565709"
+  whatsapp: "+34656565709"
+  email: ""  # TODO
+  website: "https://www.podcastvlc.es/"
+  instagram: ""  # TODO — not found on site
+  googleMapsUrl: ""  # TODO
+  barrios: ["Patraix"]  # Av. del Cid runs through Patraix area — verify
+  servicios: ["grabación", "edición", "vídeo-podcast", "asesoramiento"]
+  equipamiento:
+    - "Fujifilm X-S20"
+    - "Sony FX30"
+    - "Shure SM7B"
+    - "RODECaster Duo"
+    - "Aputure Amaran"
+    - "Neewer teleprompter"
+  priceFrom: 235
+  priceUnit: "sesión"
+  priceRange: "€€"
+  openingHours: []  # TODO
+  yearFounded: 2023  # TODO verify
+
+el-spot-studios:
+  name: "El Spot Studios"
+  legalName: ""  # TODO
+  address: "Calle Isaac Peral, 5"
+  postalCode: "46024"
+  city: "Valencia"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: [39.4580, -0.3368]  # Calle Isaac Peral 46024 — verify
+  phone: "+34665179555"
+  whatsapp: ""  # TODO
+  email: "r.ayala@elspotstudios.com"
+  website: "https://elspotstudios.com/"
+  instagram: ""  # TODO
+  googleMapsUrl: ""  # TODO
+  barrios: ["El Cabanyal"]  # Isaac Peral / Av. del Puerto area — verify
+  servicios: ["grabación", "edición", "vídeo-podcast"]
+  equipamiento:
+    - "Mesa de mezclas profesional"
+    - "Cámaras múltiples"
+    - "Equipo de audio profesional"
+  priceFrom: 0  # TODO — contact for rates
+  priceUnit: "hora"
+  priceRange: "€€€"
+  openingHours: []  # TODO
+  yearFounded: 0  # TODO
+
+ikon-podcast:
+  name: "IKON Podcast Studio"
+  legalName: ""  # TODO
+  address: ""  # NOT published on website — request before publishing
+  postalCode: ""
+  city: "Valencia"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: []  # unknown
+  phone: "+34694223952"
+  whatsapp: "+34694223952"
+  email: ""  # TODO
+  website: "https://estudiopodcastvalencia.com/"
+  instagram: "ikonpodcastestudio"
+  googleMapsUrl: ""  # TODO
+  barrios: []  # unknown — call to verify
+  servicios: ["grabación", "edición", "vídeo-podcast"]
+  equipamiento:
+    - "3 cámaras profesionales"
+    - "Equipo de audio profesional"
+    - "Iluminación profesional"
+  priceFrom: 150
+  priceUnit: "hora"
+  priceRange: "€€"
+  openingHours: []  # TODO
+  yearFounded: 0  # TODO
+
+savio-living-studio:
+  name: "Savi Coliving Podcast Studio"
+  legalName: ""  # TODO
+  address: "Naquera"  # mountain village near Valencia, not city-center
+  postalCode: "46117"
+  city: "Naquera"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: [39.6474, -0.4155]  # Naquera village — verify
+  phone: "+34632628051"
+  whatsapp: "+34632628051"
+  email: "hola@savicoliving.com"
+  website: "https://savicoliving.com/studio"
+  instagram: "savicoliving"
+  googleMapsUrl: ""  # TODO
+  barrios: []  # outside Valencia city — campo/montaña
+  servicios: ["grabación", "vídeo-podcast"]
+  equipamiento:
+    - "Sony ZV-E10 (x3)"
+    - "Shure MV7"
+    - "Rodecaster Pro II"
+    - "RØDE Wireless Micro"
+    - "DJI Mavic Mini (drone)"
+    - "Iluminación RGB"
+    - "Insta360 GO 3S"
+  priceFrom: 0  # TODO — contact for rates
+  priceUnit: "hora"
+  priceRange: "€€"
+  openingHours: []  # TODO
+  yearFounded: 0  # TODO
+
+dime-podcast:
+  name: "Dime Productions"
+  legalName: ""  # TODO
+  address: ""  # NOT published on website — "heart of Valencia" only
+  postalCode: ""
+  city: "Valencia"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: []  # unknown
+  phone: "+34634239769"
+  whatsapp: "+34634239769"
+  email: "info@dimepodcaststudio.com"
+  website: "https://dimepodcaststudio.com/"
+  instagram: "dimepodcastvalencia"
+  googleMapsUrl: ""  # TODO
+  barrios: []  # unknown — contact to verify
+  servicios: ["grabación", "edición", "vídeo-podcast", "streaming"]
+  equipamiento:
+    - "Sony FX30 (x3)"
+    - "Shure (micrófonos podcast)"
+    - "DJI Mic2"
+    - "BlackMagic"
+    - "Teleprompter"
+  priceFrom: 160
+  priceUnit: "hora"
+  priceRange: "€€"
+  openingHours: []  # TODO
+  yearFounded: 0  # TODO
+
+# ─── ADDITIONAL STUDIOS (draft — needs Phase 2 verification) ─────────────────
+
+vita-trendy:
+  name: "Vita Trendy"
+  legalName: ""
+  address: ""  # TODO — Torrente area
+  postalCode: ""
+  city: "Valencia"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: []
+  phone: ""
+  whatsapp: ""
+  email: ""
+  website: "https://vitatrendy.com/"
+  instagram: ""
+  googleMapsUrl: ""
+  barrios: []
+  servicios: ["grabación", "vídeo-podcast", "fotografía"]
+  equipamiento:
+    - "Ciclorama 6x4m"
+    - "Iluminación profesional"
+    - "Zona de maquillaje y vestuario"
+  priceFrom: 0
+  priceUnit: "hora"
+  priceRange: "€€"
+  openingHours: []
+  yearFounded: 0
+
+hive-recording-studio:
+  name: "Hive Recording Studio"
+  legalName: ""
+  address: "Calle de Benaguasil, 19 Bajo Derecha"
+  postalCode: "46015"
+  city: "Valencia"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: [39.4856, -0.3930]  # postal 46015 area — verify
+  phone: "+34685856225"
+  whatsapp: "+34685856225"
+  email: "info@hiverecordingstudio.com"
+  website: "https://www.hiverecordingstudio.com/"
+  instagram: ""
+  googleMapsUrl: ""
+  barrios: ["Campanar"]  # 46015 area — verify
+  servicios: ["grabación", "edición", "vídeo-podcast"]
+  equipamiento:
+    - "Neumann U47 (1957)"
+    - "Neumann M49V (par)"
+    - "AKG, Josephson, Shure, Beyerdynamic"
+    - "Heritage Audio, Grace Design, API (previos)"
+    - "Trinnov Nova (monitorización)"
+  priceFrom: 0
+  priceUnit: "hora"
+  priceRange: "€€"
+  openingHours: []
+  yearFounded: 0
+
+la-fabrica-de-audio:
+  name: "La Fábrica de Audio"
+  legalName: ""
+  address: ""  # TODO
+  postalCode: ""
+  city: "Valencia"
+  region: "Comunidad Valenciana"
+  country: "ES"
+  coords: []
+  phone: ""
+  whatsapp: ""
+  email: ""
+  website: "https://lafabricadeaudio.es/"
+  instagram: ""
+  googleMapsUrl: ""
+  barrios: []
+  servicios: ["grabación", "edición", "asesoramiento"]
+  equipamiento: []
+  priceFrom: 0
+  priceUnit: "hora"
+  priceRange: "€€"
+  openingHours: []
+  yearFounded: 0

@@ -56,3 +56,23 @@ Implication: `docs/prompts/review-template.md` needs to exist before content cre
 **Chosen:** Full local SEO stack. Rejected: standard/minimal SEO only.
 
 Scope: JSON-LD `LocalBusiness` + `Review` + `ItemList` + `BreadcrumbList` + `FAQPage` schemas, hreflang for ES/EN, XML sitemap, robots.txt, OpenGraph, 5–6 programmatic neighborhood pages, internal linking structure, Google Business Profile strategy doc, backlink outreach plan.
+
+## 2026-04-19 — Resumed session (new laptop)
+
+### Go toolchain
+
+**Chosen:** Run Hugo (and `hugo mod` commands) inside the `hugomods/hugo:exts` Docker image. Rejected: `brew install go` on host, switching Blowfish to git submodule.
+
+Rationale: keeps the host clean and matches the "Docker for consistency" decision already in the plan. Hugo module commands run as `docker compose run --rm hugo mod ...` (wrapped by Makefile targets).
+
+### Lead-form delivery (Phase 1)
+
+**Chosen:** Plain `mailto:` link in the lead-form partial. Rejected (for Phase 1): Formspree, self-hosted endpoint.
+
+Implication: revisit in Phase 4 when leads start flowing — swap the partial for a real backend (Formspree or VPS endpoint). Capture email destination in `data/sponsor.yaml` so it rotates with the sponsor.
+
+### Analytics
+
+**Chosen:** Google Analytics 4 via Blowfish's native integration. Rejected: none / Plausible / Umami.
+
+Implication: need a GA4 measurement ID before deploy. Stored in `params.toml` (Blowfish reads it). Placeholder in repo until user provides the real ID.

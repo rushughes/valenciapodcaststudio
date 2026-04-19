@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /tags/
+Disallow: /servicios/
+Disallow: /equipamiento/
+
+Sitemap: {{ "sitemap.xml" | absURL }}

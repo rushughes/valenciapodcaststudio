@@ -1,0 +1,19 @@
+# Active "Patrocinador #1" — the only file that changes when rotating sponsors.
+# After editing: `make deploy`.
+#
+# To unsell the slot, set `active: false`. The sponsor banner and lead-form
+# routing fall back to the editorial top-ranked studio.
+
+active: false
+
+# When active=true, these fields drive the homepage banner, "Recomendado" badge
+# on the sponsor's studio page, and lead-form delivery.
+slug: ""              # Must match a key in data/studios.yaml
+displayName: ""
+tagline: ""
+ctaLabel: ""          # e.g. "Reservar sesión"
+ctaUrl: ""            # WhatsApp / phone / booking link
+leadEmail: ""         # Where lead-form submissions are mailto:'d
+contractStart: ""     # YYYY-MM-DD
+contractEnd: ""       # YYYY-MM-DD
+priceMonthly: 0

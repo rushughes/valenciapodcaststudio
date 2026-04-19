@@ -1,0 +1,48 @@
+{{- $studio := index hugo.Data.studios .Params.slug -}}
+{{- if $studio -}}
+{{- $url := absURL .RelPermalink -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": {{ $url | jsonify }},
+  "name": {{ $studio.name | jsonify }},
+  {{- with $studio.legalName }}"legalName": {{ . | jsonify }},{{ end }}
+  "url": {{ $url | jsonify }},
+  {{- with $studio.website }}"sameAs": [{{ . | jsonify }}{{ with $studio.instagram }}, {{ printf "https://instagram.com/%s" . | jsonify }}{{ end }}],{{ end }}
+  {{- with $studio.phone }}"telephone": {{ . | jsonify }},{{ end }}
+  {{- with $studio.email }}"email": {{ . | jsonify }},{{ end }}
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ $studio.address | jsonify }},
+    "addressLocality": {{ $studio.city | default "Valencia" | jsonify }},
+    "postalCode": {{ $studio.postalCode | jsonify }},
+    "addressRegion": {{ $studio.region | default "Comunidad Valenciana" | jsonify }},
+    "addressCountry": {{ $studio.country | default "ES" | jsonify }}
+  },
+  {{- with $studio.coords }}
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{ index . 0 }},
+    "longitude": {{ index . 1 }}
+  },
+  {{- end }}
+  {{- with $studio.priceRange }}"priceRange": {{ . | jsonify }},{{ end }}
+  {{- with $studio.openingHours }}
+  "openingHoursSpecification": [
+    {{- range $i, $h := . }}{{ if $i }},{{ end }}
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": {{ $h.day | jsonify }},
+      "opens": {{ $h.opens | jsonify }},
+      "closes": {{ $h.closes | jsonify }}
+    }{{ end }}
+  ],
+  {{- end }}
+  "areaServed": {
+    "@type": "City",
+    "name": "Valencia"
+  }
+}
+</script>
+{{- end -}}

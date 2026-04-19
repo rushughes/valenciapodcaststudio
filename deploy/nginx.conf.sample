@@ -1,0 +1,72 @@
+# Reference Nginx config for valenciapodcaststudio.com on a VPS.
+# Full server setup instructions: docs/server-setup.md
+#
+# Prerequisites:
+#   - Certbot / Let's Encrypt installed
+#   - Run: certbot --nginx -d valenciapodcaststudio.com -d www.valenciapodcaststudio.com
+#   - Certbot will fill in the ssl_certificate paths automatically.
+
+server {
+    listen 80;
+    server_name valenciapodcaststudio.com www.valenciapodcaststudio.com;
+    return 301 https://valenciapodcaststudio.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name www.valenciapodcaststudio.com;
+    ssl_certificate     /etc/letsencrypt/live/valenciapodcaststudio.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/valenciapodcaststudio.com/privkey.pem;
+    return 301 https://valenciapodcaststudio.com$request_uri;
+}
+
+server {
+    listen 443 ssl http2;
+    server_name valenciapodcaststudio.com;
+
+    ssl_certificate     /etc/letsencrypt/live/valenciapodcaststudio.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/valenciapodcaststudio.com/privkey.pem;
+    ssl_protocols       TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+
+    root /var/www/valenciapodcaststudio;
+    index index.html;
+
+    charset utf-8;
+
+    # Gzip
+    gzip on;
+    gzip_vary on;
+    gzip_types text/plain text/css application/json application/javascript application/xml image/svg+xml;
+    gzip_min_length 256;
+
+    # Cache static assets aggressively (Hugo hashes filenames)
+    location ~* \.(css|js|woff2?|ttf|eot|svg|ico|png|jpg|jpeg|webp|avif|gif)$ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        access_log off;
+    }
+
+    # HTML — short cache so fresh deploys propagate quickly
+    location ~* \.html$ {
+        expires 1h;
+        add_header Cache-Control "public, must-revalidate";
+    }
+
+    # Sitemap and robots.txt — cache for 1 day
+    location ~* (sitemap\.xml|robots\.txt)$ {
+        expires 1d;
+        add_header Cache-Control "public";
+    }
+
+    # Clean Hugo URLs (no trailing slash redirect needed — Hugo generates index.html)
+    location / {
+        try_files $uri $uri/ =404;
+        error_page 404 /404.html;
+    }
+
+    # Security headers
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+}

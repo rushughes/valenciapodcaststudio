@@ -1,0 +1,32 @@
+[es]
+  languageCode  = "es-ES"
+  languageName  = "Español"
+  languageDirection = "ltr"
+  weight        = 1
+  title         = "Valencia Podcast Studio"
+  [es.params]
+    displayName  = "ES"
+    isoCode      = "es"
+    rtl          = false
+    dateFormat   = "2 de enero, 2006"
+    description  = "Ranking editorial de los mejores estudios de podcast en Valencia: precios, equipamiento, barrios y reseñas verificadas."
+    [es.params.author]
+      name  = "Valencia Podcast Studio"
+      email = "hola@valenciapodcaststudio.com"
+
+[en]
+  languageCode  = "en"
+  languageName  = "English"
+  languageDirection = "ltr"
+  weight        = 2
+  title         = "Valencia Podcast Studio"
+  contentDir    = "content.en"
+  [en.params]
+    displayName  = "EN"
+    isoCode      = "en"
+    rtl          = false
+    dateFormat   = "January 2, 2006"
+    description  = "Editorial rankings of the best podcast studios in Valencia, Spain: prices, gear, neighborhoods and verified reviews."
+    [en.params.author]
+      name  = "Valencia Podcast Studio"
+      email = "hola@valenciapodcaststudio.com"

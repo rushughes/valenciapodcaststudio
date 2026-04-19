@@ -1,0 +1,21 @@
+services:
+  hugo:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: valenciapodcaststudio-hugo:dev
+    working_dir: /src
+    volumes:
+      - .:/src
+      - hugo-cache:/tmp/hugo_cache
+      - hugo-resources:/src/resources
+    ports:
+      - "1313:1313"
+    environment:
+      HUGO_ENVIRONMENT: development
+      HUGO_CACHEDIR: /tmp/hugo_cache
+    command: server --bind 0.0.0.0 --baseURL http://localhost:1313 --buildDrafts --buildFuture --disableFastRender
+
+volumes:
+  hugo-cache:
+  hugo-resources:

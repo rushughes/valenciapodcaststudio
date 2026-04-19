@@ -1,0 +1,46 @@
+baseURL = "https://valenciapodcaststudio.com/"
+title = "Valencia Podcast Studio"
+defaultContentLanguage = "es"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableEmoji = true
+enableGitInfo = true
+hasCJKLanguage = false
+summaryLength = 30
+
+[pagination]
+  pagerSize = 20
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+# Required by Blowfish
+canonifyURLs = false
+relativeURLs = false
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[caches]
+  [caches.images]
+    dir = ":cacheDir/images"
+
+[taxonomies]
+  barrio    = "barrios"
+  servicio  = "servicios"
+  equipamiento = "equipamiento"
+
+[permalinks]
+  estudios = "/estudios/:slug/"
+  barrios  = "/barrios/:slug/"
+  guias    = "/guias/:slug/"
+
+[sitemap]
+  changefreq = "weekly"
+  priority   = 0.5
+  filename   = "sitemap.xml"
+
+[services]
+  [services.googleAnalytics]
+    # Replace with the real GA4 measurement ID before deploying. Tracked in HANDOFF.md.
+    ID = "G-8BX13X08KQ"

@@ -1,0 +1,11 @@
+{{/* Per-page schema.org JSON-LD injection. Cached partial wouldn't see .Page. */}}
+{{- if and (eq .Section "estudios") (not .IsSection) -}}
+  {{ partial "schema-localbusiness.html" . }}
+  {{ partial "schema-review.html" . }}
+  {{ partial "schema-breadcrumb.html" . }}
+{{- else if and (eq .Section "estudios") .IsSection -}}
+  {{ partial "schema-itemlist.html" . }}
+  {{ partial "schema-breadcrumb.html" . }}
+{{- else if .IsPage -}}
+  {{ partial "schema-breadcrumb.html" . }}
+{{- end -}}

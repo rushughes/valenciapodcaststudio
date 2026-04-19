@@ -1,0 +1,39 @@
+[[main]]
+  name   = "Estudios"
+  pageRef = "/estudios"
+  weight = 10
+
+[[main]]
+  name   = "Barrios"
+  pageRef = "/barrios"
+  weight = 20
+
+[[main]]
+  name   = "Guías"
+  pageRef = "/guias"
+  weight = 30
+
+[[main]]
+  name   = "Comparativa"
+  pageRef = "/comparativa"
+  weight = 40
+
+[[main]]
+  name   = "Sobre nosotros"
+  pageRef = "/sobre-nosotros"
+  weight = 50
+
+[[footer]]
+  name   = "Metodología editorial"
+  pageRef = "/guias/metodologia"
+  weight = 10
+
+[[footer]]
+  name   = "Aviso legal"
+  pageRef = "/aviso-legal"
+  weight = 20
+
+[[footer]]
+  name   = "Patrocinio"
+  pageRef = "/patrocinio"
+  weight = 30

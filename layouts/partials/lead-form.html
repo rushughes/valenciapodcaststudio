@@ -1,0 +1,36 @@
+{{- /*
+  Phase 1 lead form: plain mailto:. Routes to the active sponsor's leadEmail
+  if one exists, otherwise to the editorial inbox. See docs/decisions.md.
+  Phase 4: replace with a real backend (Formspree or VPS endpoint).
+*/ -}}
+{{- $studio := index hugo.Data.studios .Params.slug -}}
+{{- $sponsor := hugo.Data.sponsor -}}
+{{- $to := "hola@valenciapodcaststudio.com" -}}
+{{- if and $sponsor $sponsor.active $sponsor.leadEmail -}}
+  {{- $to = $sponsor.leadEmail -}}
+{{- end -}}
+{{- $subject := printf "Consulta sobre %s" ($studio.name | default .Title) -}}
+<section class="lead-form my-8 rounded-lg border border-neutral-200 bg-neutral-50 p-6 dark:border-neutral-800 dark:bg-neutral-900">
+  <h2 class="mt-0 text-2xl font-bold">{{ i18n "lead_form_title" | default "¿Te interesa este estudio?" }}</h2>
+  <p class="text-neutral-600 dark:text-neutral-300">
+    {{ i18n "lead_form_intro" | default "Envíanos los detalles de tu sesión y te ponemos en contacto con el estudio." }}
+  </p>
+  <form action="mailto:{{ $to }}" method="get" enctype="text/plain" class="mt-4 grid gap-3">
+    <input type="hidden" name="subject" value="{{ $subject }}">
+    <label class="grid gap-1">
+      <span class="text-sm font-medium">{{ i18n "lead_form_name" | default "Nombre" }}</span>
+      <input type="text" name="nombre" required class="rounded border border-neutral-300 bg-white px-3 py-2 dark:border-neutral-700 dark:bg-neutral-800">
+    </label>
+    <label class="grid gap-1">
+      <span class="text-sm font-medium">{{ i18n "lead_form_email" | default "Email" }}</span>
+      <input type="email" name="email" required class="rounded border border-neutral-300 bg-white px-3 py-2 dark:border-neutral-700 dark:bg-neutral-800">
+    </label>
+    <label class="grid gap-1">
+      <span class="text-sm font-medium">{{ i18n "lead_form_message" | default "Detalles de la sesión" }}</span>
+      <textarea name="mensaje" rows="4" required class="rounded border border-neutral-300 bg-white px-3 py-2 dark:border-neutral-700 dark:bg-neutral-800"></textarea>
+    </label>
+    <button type="submit" class="justify-self-start rounded bg-primary-600 px-5 py-2 font-semibold text-white hover:bg-primary-700">
+      {{ i18n "lead_form_submit" | default "Enviar consulta" }}
+    </button>
+  </form>
+</section>

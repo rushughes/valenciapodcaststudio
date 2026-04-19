@@ -1,0 +1,20 @@
+[goldmark]
+  [goldmark.renderer]
+    unsafe = true
+  [goldmark.parser]
+    [goldmark.parser.attribute]
+      block = true
+      title = true
+
+[highlight]
+  noClasses = false
+  codeFences = true
+  guessSyntax = false
+  lineNos = false
+  style = "github"
+  tabWidth = 2
+
+[tableOfContents]
+  startLevel = 2
+  endLevel   = 4
+  ordered    = false

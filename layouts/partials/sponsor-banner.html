@@ -1,0 +1,25 @@
+{{- $s := hugo.Data.sponsor -}}
+{{- if and $s $s.active $s.slug -}}
+{{- $studio := index hugo.Data.studios $s.slug -}}
+<aside class="sponsor-banner my-6 rounded-lg border-2 border-amber-400 bg-amber-50 p-5 dark:border-amber-500 dark:bg-amber-900/20">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <span class="inline-block rounded bg-amber-400 px-2 py-0.5 text-xs font-bold uppercase tracking-wider text-amber-900">
+        {{ i18n "sponsor_badge" | default "Patrocinador #1" }}
+      </span>
+      <h3 class="mt-2 text-xl font-bold">{{ $s.displayName | default $studio.name }}</h3>
+      {{ with $s.tagline }}<p class="mt-1 text-neutral-700 dark:text-neutral-300">{{ . }}</p>{{ end }}
+    </div>
+    {{ with $s.ctaUrl }}
+    <a href="{{ . }}" class="shrink-0 rounded-lg bg-amber-600 px-4 py-2 font-semibold text-white hover:bg-amber-700"
+       rel="sponsored noopener" target="_blank">
+      {{ $s.ctaLabel | default (i18n "sponsor_cta_default" | default "Reservar") }}
+    </a>
+    {{ end }}
+  </div>
+  <p class="mt-3 text-xs text-neutral-500">
+    {{ i18n "sponsor_disclosure" | default "Espacio publicitario. El ranking editorial es independiente." }}
+    <a href="/guias/metodologia/" class="underline">{{ i18n "sponsor_methodology_link" | default "Metodología" }}</a>
+  </p>
+</aside>
+{{- end -}}

@@ -1,0 +1,146 @@
+colorScheme        = "blowfish"
+defaultAppearance  = "light"
+autoSwitchAppearance = true
+showAppearanceSwitcher = true
+showSearch         = true
+showThemeButton    = false
+enableSearch       = true
+enableCodeCopy     = true
+mainSections       = ["estudios", "guias", "barrios"]
+robots             = ""
+disableImageOptimization = false
+disableTextInHeader = false
+defaultBackgroundImage   = ""
+defaultFeaturedImage     = ""
+highlightCurrentMenuArea = true
+smartTOC                 = true
+smartTOCHideUnfocusedChildren = false
+
+  [header]
+    layout = "basic"
+
+  [footer]
+    showMenu     = true
+    showCopyright = true
+    showThemeAttribution = true
+    showAppearanceSwitcher = true
+    showScrollToTop = true
+
+  [homepage]
+    layout = "custom"
+    homepageImage = ""
+    showRecent = true
+    showRecentItems = 6
+    showMoreLink = true
+    showMoreLinkDest = "/estudios/"
+    cardView = true
+    cardViewScreenWidth = false
+    layoutBackgroundBlur = true
+
+  [article]
+    showDate          = true
+    showViews         = false
+    showLikes         = false
+    showDateOnlyInArticle = false
+    showDateUpdated   = true
+    showAuthor        = false
+    showHero          = true
+    heroStyle         = "background"
+    layoutBackgroundBlur = true
+    layoutBackgroundHeaderSpace = true
+    showBreadcrumbs   = true
+    showDraftLabel    = true
+    showEdit          = false
+    showHeadingAnchors = true
+    showPagination    = true
+    invertPagination  = false
+    showReadingTime   = true
+    showTableOfContents = true
+    showRelatedContent = true
+    relatedContentLimit = 4
+    showTaxonomies    = true
+    showAuthorsBadges = false
+    showWordCount     = false
+    sharingLinks      = ["x-twitter", "linkedin", "whatsapp", "telegram", "email"]
+    showZenMode       = false
+
+  [list]
+    showHero        = false
+    layoutBackgroundBlur = true
+    layoutBackgroundHeaderSpace = true
+    showBreadcrumbs = true
+    showSummary     = true
+    showViews       = false
+    showLikes       = false
+    showTableOfContents = false
+    showCards       = true
+    orderByWeight   = false
+    groupByYear     = false
+    cardView        = true
+    cardViewScreenWidth = false
+    constrainItemsWidth = false
+
+  [sitemap]
+    excludedKinds = ["taxonomy", "term"]
+
+  [taxonomy]
+    showTermCount = true
+    showHero        = false
+    showBreadcrumbs = true
+    showViews       = false
+    showLikes       = false
+    showTableOfContents = false
+    cardView        = false
+
+  [term]
+    showHero        = false
+    showBreadcrumbs = true
+    showViews       = false
+    showLikes       = false
+    showTableOfContents = true
+    groupByYear     = false
+    cardView        = true
+    cardViewScreenWidth = false
+
+  [firebase]
+    apiKey            = ""
+    authDomain        = ""
+    projectId         = ""
+    storageBucket     = ""
+    messagingSenderId = ""
+    appId             = ""
+    measurementId     = ""
+
+  [fathomAnalytics]
+    site   = ""
+    domain = ""
+
+  [umamiAnalytics]
+    websiteid = ""
+    domain    = ""
+    dataDomains = ""
+
+  [selineAnalytics]
+    token  = ""
+    apiHost = ""
+
+  [buymeacoffee]
+    identifier = ""
+    globalWidget = false
+    globalWidgetMessage = ""
+    globalWidgetColor = ""
+    globalWidgetPosition = "Right"
+
+  [verification]
+    google = ""
+    bing   = ""
+    pinterest = ""
+    yandex = ""
+    fediverse = ""
+
+# Site-specific (read by our custom partials)
+  [site]
+    domain   = "valenciapodcaststudio.com"
+    cityName = "Valencia"
+    region   = "Comunidad Valenciana"
+    country  = "ES"
